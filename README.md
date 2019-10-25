@@ -21,3 +21,8 @@ Si deseas puedes ejecutarlo con Docker tambien.
 $ docker build -t granfraude/actas:latest .
 $ docker run --rm -e START=51541 -e END=51550 -v $(pwd)/images/computo:/app/images/computo granfraude/actas
 ```
+
+Tambien puedes guardar todos en un solo directorio, usa el branch `oneFolderOnly` para esto:
+``` sh
+$ git checkout oneFolderOnly
+```
