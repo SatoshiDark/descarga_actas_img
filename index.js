@@ -42,7 +42,7 @@ var download = function(uri, filename, callback){
   });
 };
 
-for(var i = start; i < end;i++){
+for(var i = start; i <= end;i++){
   // Approach 1
   download(trepPath + i + '1' + config.IMAGE_EXT, config.TREP_SAVE_PATH + i + '1' + config.IMAGE_EXT, function(){
     console.log('TREP descargado');
