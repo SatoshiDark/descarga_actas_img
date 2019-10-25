@@ -4,12 +4,11 @@
   "description": "Para descargar las actas locas",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node index.js"
   },
   "author": "Satoshi Bruno",
   "license": "ISC",
   "dependencies": {
-    "axios": "^0.19.0",
     "dotenv": "^8.2.0",
     "fs": "0.0.1-security",
     "minimist": "^1.2.0",

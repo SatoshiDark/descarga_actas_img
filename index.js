@@ -2,7 +2,6 @@ const dotenv = require('dotenv')
 const fs = require('fs');
 const request = require('request');
 var argv = require('minimist')(process.argv.slice(2));
-
 const config = dotenv.config().parsed
 const trepPath = config.TREP_URL+config.IMAGE_PATH
 const computoPath = config.COMPUTO_URL+config.IMAGE_PATH
@@ -37,19 +36,20 @@ if (typeof argv.end === 'undefined' && typeof process.env.END === 'undefined') {
 
 var download = function(uri, filename, callback){
   request.head(uri, function(err, res, body){
-    request(uri).pipe(fs.createWriteStream(filename)).on('close', callback);
+    request({url: uri, headers: {
+      "Connection": "keep-alive"
+    }}).pipe(fs.createWriteStream(filename)).on('close', callback);
   });
 };
 
-while (start <= end){
-  download(trepPath + start + config.IMAGE_EXT, config.TREP_SAVE_PATH + start + config.IMAGE_EXT, function(){
-    console.log('TREP descargado: ' + start);
+for(var i = start; i < end;i++){
+  // Approach 1
+  download(trepPath + i + '1' + config.IMAGE_EXT, config.TREP_SAVE_PATH + i + '1' + config.IMAGE_EXT, function(){
+    console.log('TREP descargado');
   });
-  download(computoPath + start + config.IMAGE_EXT, config.COMPUTO_SAVE_PATH + start + config.IMAGE_EXT, function(){
-    console.log('COMPUTO descargado: ' + end );
+  download(computoPath + i + '1' + config.IMAGE_EXT, config.COMPUTO_SAVE_PATH + i + '1' + config.IMAGE_EXT, function(){
+    console.log('COMPUTO descargado');
   });
-
-  start++
 }
 
 console.log("🇧🇴🇧🇴🇧🇴 Vamos Bolivia que se puede 🇧🇴🇧🇴🇧🇴")
