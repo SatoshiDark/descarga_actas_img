@@ -13,11 +13,11 @@ Cambia el inicio y el final segun el numero de mesa, este es un ejemplo.
 ``` sh
 $ node index.js --start 51541 --end 51550
 ```
-Encontraras las imagenes en la carpeta images/computo o images/trep
+Encontraras las imagenes en la carpeta images
 
 Opcional
 Si deseas puedes ejecutarlo con Docker tambien.
 ``` sh
 $ docker build -t granfraude/actas:latest .
-$ docker run --rm -e START=51541 -e END=51550 -v $(pwd)/images/computo:/app/images/computo granfraude/actas
+$ docker run --rm -e START=51541 -e END=51550 -v $(pwd)/images:/app/images granfraude/actas
 ```

@@ -44,10 +44,10 @@ var download = function(uri, filename, callback){
 
 for(var i = start; i <= end;i++){
   // Approach 1
-  download(trepPath + i + '1' + config.IMAGE_EXT, config.TREP_SAVE_PATH + i + '1' + config.IMAGE_EXT, function(){
+  download(trepPath + i + '1' + config.IMAGE_EXT, config.SAVE_PATH + i + '1-trep' + config.IMAGE_EXT, function(){
     console.log('TREP descargado');
   });
-  download(computoPath + i + '1' + config.IMAGE_EXT, config.COMPUTO_SAVE_PATH + i + '1' + config.IMAGE_EXT, function(){
+  download(computoPath + i + '1' + config.IMAGE_EXT, config.SAVE_PATH + i + '1-computo' + config.IMAGE_EXT, function(){
     console.log('COMPUTO descargado');
   });
 }

@@ -1,6 +1,5 @@
 # Images
-images/computo/*
-images/trep/*
+images/*
 
 # Logs
 logs
